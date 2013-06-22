@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset=utf-8>
+		<title>Hack the game</title>
+		<link rel=stylesheet href=style.css>
+		<link rel=stylesheet href="//cdn.jsdelivr.net/codemirror/3.1/codemirror.css">
+	</head>
+	<body>
+		<div class=left>
+			<canvas id=canvas width=500 height=500>
+				Update your browser!
+			</canvas>
+		</div>
+		<div class=right id=code>
+		
+<textarea id=code1>/******************************************************************
+ Welcome to HACK THE GAME!
+ The left page contains a 500 by 500px HTML5 canvas.
+ The right page is the game's code, in JavaScript.
+ In each level, you have to complete the code to reach a new goal.
+ LEVEL 1: display the hero at the center of the canvas.
+******************************************************************/
+
+/* Game initialization */
+
+// Global object
+var game = {};
+
+// Canvas
+game.canvas = document.getElementById('canvas');
+game.ctx = game.canvas.getContext("2d");
+
+// Hero
+game.hero = {};
+game.hero.width = 30;
+game.hero.height = 30;
+game.hero.state = "idle";
+game.hero.idle = new Image();
+game.hero.idle.src = "idle.png";</textarea>
+<div class=edit>
+<textarea id=code2>// Type your code here</textarea>
+</div>
+<textarea id=code3>/* Game loop */
+
+/* Game controls */</textarea>
+		</div>
+		<a class=help href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.png" target=_blank>Help</a>
+		<script src="//cdn.jsdelivr.net/codemirror/3.1/codemirror.js"></script>
+		<script src="http://codemirror.net/mode/javascript/javascript.js"></script>
+		<script src="level1.js"></script>
+	</body>
+</html>
