@@ -30,25 +30,6 @@ game.topreload = 2;                   // images to preload
 game.canvas = document.getElementById('canvas');
 game.ctx = game.canvas.getContext("2d");
 
-// Preload images
-game.preload = function(){
-  game.topreload--;
-  if(game.topreload === 0){           // all images are loaded
-    game.draw();                      // draw the scene
-    game.loop();                      // start the game loop
-  }
-}
-
-// Draw the scene
-game.draw = function(){
-  // Hero
-  game.ctx.drawImage(                 // display the hero
-    game.hero[game.hero.state],       // at current state
-    game.hero.x,                      // and position
-    game.hero.y
-  );
-}
-
 // Hero
 game.hero = {};
 game.hero.width = 30;                 // width
@@ -62,28 +43,37 @@ game.hero.idle.onload = game.preload; // image preload
 game.hero.fall = new Image();         // image for "fall" state
 game.hero.fall.src = "fall.png";      // image source
 game.hero.fall.onload = game.preload; // image preload
-game.draw();</textarea>
-<textarea id=code2>/* Game loop */
+
+// Preload images
+game.preload = function(){
+  game.topreload--;
+  if(game.topreload === 0){           // all images are loaded
+    game.loop();                      // start the game loop
+  }
+}
+
+/* Game loop and loop functions */
 
 // Loop
 game.loop = function(){
-  
-  // Reset the canvas
-  game.ctx.clearRect(0, 0, 500, 500);
+  game.ctx.clearRect(0, 0, 500, 500); // reset the canvas
+  game.gravity();                     // apply gravity
+  game.draw();                        // draw the current frame
+  requestAnimationFrame(game.loop);   // wait for next frame
+}
 
-  // Apply gravity
-  game.gravity();
-  
-  // Draw the current frame
-  game.draw();
-  
-  // Wait for next frame
-  requestAnimationFrame(game.loop);
+// Draw the scene
+game.draw = function(){
+  game.ctx.drawImage(                 // display the hero
+    game.hero[game.hero.state],       // at current state
+    game.hero.x,                      // and position
+    game.hero.y
+  );
 }
 
 // Gravity</textarea>
 <div class=edit>
-<textarea id=code3>// Write the gravity function here</textarea>
+<textarea id=code2>// Write the gravity function here</textarea>
 </div>
       <br>
       <br>

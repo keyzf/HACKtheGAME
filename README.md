@@ -1,5 +1,6 @@
 HACK the GAME
+=============
 
-a gaming/coding experiment.
+A gaming/coding experiment inspired by Bret Victor talk "Inventing on principle".
 
-http://xem.github.com/HACKtheGAME/
+Play here: http://xem.github.com/HACKtheGAME/
