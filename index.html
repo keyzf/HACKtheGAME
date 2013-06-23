@@ -4,14 +4,12 @@
 		<meta charset=utf-8>
 		<title>Hack the game</title>
 		<link rel=stylesheet href=style.css>
-		<link rel=stylesheet href="//cdn.jsdelivr.net/codemirror/3.1/codemirror.css">
 	</head>
 	<body>
 		<div class=left>
-			<canvas id=canvas width=500 height=500>
-				Update your browser!
-			</canvas>
-		</div>
+      <canvas id=background width=500 height=500></canvas>
+      <canvas id=canvas width=500 height=500>Update your browser!</canvas>
+    </div>
 		<div class=right id=code>
 		
 <textarea id=code1>/******************************************************************
@@ -33,21 +31,18 @@ game.ctx = game.canvas.getContext("2d");
 
 // Hero
 game.hero = {};
-game.hero.width = 30;
-game.hero.height = 30;
-game.hero.state = "idle";
-game.hero.idle = new Image();
-game.hero.idle.src = "idle.png";</textarea>
+game.hero.width = 30;               // width
+game.hero.height = 30;              // height
+game.hero.state = "idle";           // current state
+game.hero.idle = new Image();       // image for "idle" state
+game.hero.idle.src = "idle.png";    // image source
+game.hero.idle.onload = game.draw;  // draw it when it's loaded</textarea>
 <div class=edit>
-<textarea id=code2>// Type your code here</textarea>
+<textarea id=code2>// write the draw function here</textarea>
 </div>
-<textarea id=code3>/* Game loop */
-
-/* Game controls */</textarea>
 		</div>
-		<a class=help href="http://www.nihilogic.dk/labs/canvas_sheet/HTML5_Canvas_Cheat_Sheet.png" target=_blank>Help</a>
-		<script src="//cdn.jsdelivr.net/codemirror/3.1/codemirror.js"></script>
-		<script src="http://codemirror.net/mode/javascript/javascript.js"></script>
-		<script src="level1.js"></script>
+		<a class=help href=HTML5_Canvas_Cheat_Sheet.png target=_blank>Help</a>
+		<script src=libs.js></script>
+		<script src=level1.js></script>
 	</body>
 </html>
