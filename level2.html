@@ -7,73 +7,74 @@
 	</head>
 	<body>
 		<div class=left>
-      <canvas id=background width=500 height=500></canvas>
-      <canvas id=canvas width=500 height=500>Update your browser!</canvas>
+      <canvas id=background width=600 height=600></canvas>
+      <canvas id=canvas width=600 height=600>Update your browser!</canvas>
     </div>
 		</div>
 		<div class=right id=code>
 		
-<textarea id=code1>/**************************************************************
- LEVEL 2: add the gravity!
-**************************************************************/
+<textarea id=code1>/******************************************************************************
+  Now let's animate all this!
+  The code uses Paul Irish's cross-browser polyfill for requestAnimationFrame
+  (http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/)
+  LEVEL 2: Add the gravity! Make the hero fall!
+******************************************************************************/
 
 /* Game initialization */
 
-// Global object
-var game = {};
+// Canvas
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
 
 // Global vars
-game.gravityspeed = 5;                // gravity: 5px/frame
-game.topreload = 2;                   // images to preload
-
-// Canvas
-game.canvas = document.getElementById('canvas');
-game.ctx = game.canvas.getContext("2d");
+var g = 5;                        // gravity acceleration (in px)
+var preloading = 2;               // assets to preload
 
 // Hero
-game.hero = {};
-game.hero.width = 30;                 // width
-game.hero.height = 30;                // height
-game.hero.x = 235;                    // horizontal position
-game.hero.y = 235;                    // vertical position
-game.hero.state = "fall";             // current state
-game.hero.idle = new Image();         // image for "idle" state
-game.hero.idle.src = "idle.png";      // image source
-game.hero.idle.onload = game.preload; // image preload
-game.hero.fall = new Image();         // image for "fall" state
-game.hero.fall.src = "fall.png";      // image source
-game.hero.fall.onload = game.preload; // image preload
+var hero = {};
+hero.width = 30;                  // width
+hero.height = 30;                 // height
+hero.x = 275;                     // horizontal position
+hero.y = 275;                     // vertical position
+hero.xspeed = 0;                  // horizontal speed
+hero.yspeed = 0;                  // vertical speed
+hero.state = "fall";              // current state
+hero.idle = new Image();          // image for "idle" state
+hero.idle.src = "idle.png";       // image source
+hero.idle.onload = preload;       // image preload
+hero.fall = new Image();          // image for "fall" state
+hero.fall.src = "fall.png";       // image source
+hero.fall.onload = preload;       // image preload
 
 // Preload images
-game.preload = function(){
-  game.topreload--;
-  if(game.topreload === 0){           // all images are loaded
-    game.loop();                      // start the game loop
+function preload(){
+  preloading--;                   // a new asset is loaded
+  if(preloading === 0){           // if all assets are loaded
+    loop();                       // start the game loop
   }
 }
 
-/* Game loop and loop functions */
-
-// Loop
-game.loop = function(){
-  game.ctx.clearRect(0, 0, 500, 500); // reset the canvas
-  game.gravity();                     // apply gravity
-  game.draw();                        // draw the current frame
-  requestAnimationFrame(game.loop);   // wait for next frame
+// Game loop
+function loop(){
+  ctx.clearRect(0, 0, 600, 600);  // reset the canvas
+  gravity();                      // apply gravity
+  draw();                         // draw the current frame
+  requestAnimationFrame(loop);    // wait for next frame
 }
 
 // Draw the scene
-game.draw = function(){
-  game.ctx.drawImage(                 // display the hero
-    game.hero[game.hero.state],       // at current state
-    game.hero.x,                      // and position
-    game.hero.y
+function draw(){
+  ctx.drawImage(                  // display the hero
+    hero[hero.state],             // at current state
+    hero.x,                       // and position
+    hero.y
   );
 }
 
 // Gravity</textarea>
 <div class=edit>
-<textarea id=code2>// Write the gravity function here</textarea>
+<textarea id=code2>// Write the gravity function here
+function gravity(){}</textarea>
 </div>
       <br>
       <br>

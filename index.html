@@ -7,38 +7,35 @@
 	</head>
 	<body>
 		<div class=left>
-      <canvas id=background width=500 height=500></canvas>
-      <canvas id=canvas width=500 height=500>Update your browser!</canvas>
+      <canvas id=background width=600 height=600></canvas>
+      <canvas id=canvas width=600 height=600>Update your browser!</canvas>
     </div>
 		<div class=right id=code>
 		
-<textarea id=code1>/******************************************************************
- Welcome to HACK THE GAME!
- The left page contains a 500 by 500px HTML5 canvas.
- The right page is the game's code, in JavaScript.
- In each level, you have to complete the code to reach a new goal.
- LEVEL 1: display the hero at the center of the canvas.
-******************************************************************/
+<textarea id=code1>/******************************************************************************
+  Welcome to HACK THE GAME!
+  The left page contains a 600 by 600px HTML5 canvas.
+  The right page is the game's code, in JavaScript.
+  In each level, you have to complete the code to reach a new goal.
+  LEVEL 1: display the hero at the center of the canvas.
+******************************************************************************/
 
 /* Game initialization */
 
-// Global object
-var game = {};
-
 // Canvas
-game.canvas = document.getElementById('canvas');
-game.ctx = game.canvas.getContext("2d");
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext("2d");
 
 // Hero
-game.hero = {};
-game.hero.width = 30;               // width
-game.hero.height = 30;              // height
-game.hero.state = "idle";           // current state
-game.hero.idle = new Image();       // image for "idle" state
-game.hero.idle.src = "idle.png";    // image source
-game.hero.idle.onload = game.draw;  // draw it when it's loaded</textarea>
+var hero = {};
+hero.width = 30;            // width
+hero.height = 30;           // height
+hero.idle = new Image();    // image for "idle" state
+hero.idle.src = "idle.png"; // image source
+hero.idle.onload = draw;    // draw it when it's loaded</textarea>
 <div class=edit>
-<textarea id=code2>// write the draw function here</textarea>
+<textarea id=code2>// write the draw function here
+function draw(){}</textarea>
 </div>
 		</div>
 		<a class=help href=HTML5_Canvas_Cheat_Sheet.png target=_blank>Help</a>

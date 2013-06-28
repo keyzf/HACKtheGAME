@@ -1,11 +1,11 @@
 /* Hack the game */
 * { margin: 0; padding: 0; border: 0; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; font: normal 11px monospace; }
 html, body { height: 100%; }
-body { text-align: center; font-size: 0; background: #ddd; min-width: 1000px; min-height: 500px;}
-.left, .right { display: inline-block; vertical-align: top; width: 500px; height: 500px; border: 1px solid #888; background: #fff; box-shadow: 0px 0px 10px #555; position: relative; top: 50%; margin-top: -250px; }
+body { text-align: center; font-size: 0; background: #ddd; min-width: 1200px; min-height: 600px;}
+.left, .right { display: inline-block; vertical-align: top; width: 600px; height: 600px; border: 1px solid #888; background: #fff; box-shadow: 0px 0px 10px #555; position: relative; top: 50%; margin-top: -300px; }
 .left { border-radius: 0 20px 20px 0; background: #eef; overflow: hidden; }
 .left canvas { position: absolute; left: 0; top: 0; border-radius: 0 20px 20px 0; }
-.right { border-radius: 20px 0 0 20px; text-align: left; overflow: auto; background: linear-gradient(90deg, #ddd, #fff 10px); }
+.right { border-radius: 20px 0 0 20px; text-align: left; overflow: auto; background: linear-gradient(90deg, #ddd, #fff 10px); padding: 20px }
 .right textarea { opacity: 0; }
 .edit { border: 2px dotted red; background: #fee; margin: 0 10px; }
 body .CodeMirror { height: auto; margin: 10px; }
